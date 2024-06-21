@@ -1,0 +1,7 @@
+.blogPost {
+    @apply absolute w-full h-full bg-green-400 transition duration-200 bottom-0 left-0 opacity-0 
+}
+
+.blogPost:hover {
+    @apply opacity-50 text-opacity-100 cursor-pointer
+}

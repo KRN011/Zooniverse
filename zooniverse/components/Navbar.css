@@ -1,0 +1,21 @@
+.NavLinks {
+    @apply relative select-none
+}
+
+
+.NavLinks::after {
+    @apply content-[''] absolute w-[0%] h-[3px] rounded-xl bg-green-700 duration-300 left-0 -bottom-[5px] 
+}
+
+.NavLinks::after:hover {
+    @apply w-[100%]
+    
+}
+
+.active {
+    @apply transition opacity-100 duration-150 
+}
+
+.inactive {
+    @apply transition opacity-0 -translate-y-[50%] invisible
+}

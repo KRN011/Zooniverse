@@ -1,0 +1,13 @@
+.FootLinks {
+    @apply relative select-none
+}
+
+
+.FootLinks::after {
+    @apply content-[''] absolute w-[0%] h-[3px] rounded-xl bg-green-700 duration-300 left-0 -bottom-[5px] 
+}
+
+.FootLinks::after:hover {
+    @apply w-[100%]
+    
+}
