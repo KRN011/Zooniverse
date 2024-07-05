@@ -19,3 +19,11 @@
 .inactive {
     @apply transition opacity-0 -translate-y-[50%] invisible
 }
+
+.closeVisible {
+    @apply transform transition rotate-180 scale-100 duration-500 
+}
+
+.closeInvisible {
+    @apply hidden transform transition scale-0 duration-500
+}

@@ -10,3 +10,16 @@
 img {
   user-select: none;
 }
+
+body {
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+  scrollbar-color: #0F8B3A  #f1f1f1;
+}
+
+html, body {
+  @apply overflow-x-hidden
+}

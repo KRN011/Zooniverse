@@ -4,12 +4,12 @@ import Link from "next/link";
 const ZooEvents = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center mt-16 gap-6">
-        <div className="text-7xl font-bold">Zooniverse Events</div>
+      <div className="flex flex-col items-center justify-center mt-16 gap-6 max-lg:mt-12">
+        <div className="text-7xl font-bold max-[990px]:text-6xl max-md:text-5xl max-[600px]:text-4xl max-[425px]:text-3xl max-[375px]:text-2xl">Zooniverse Events</div>
       </div>
 
         {/* Event elements */}
-      <div className="mt-16 flex justify-evenly gap-3">
+      <div className="mt-16 flex justify-evenly gap-3 max-md:gap-2 max-md:mt-12 max-[600px]:gap-1 mb-16">
         <div className="w-30per">
           <Link href="/events" className="relative group">
             <img src="/images/elephant.jpg" className="group-hover:blur-sm group-hover:brightness-90"/>

@@ -3,9 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import "./Navbar.css";
+import Menu from "./Menu";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const menuRef = useRef();
 
@@ -24,85 +26,107 @@ const Navbar = () => {
   });
 
   return (
-    <nav className="h-24 w-full flex overflow-hidden justify-between items-center max-lg:h-20 min-[990px]:w-full">
-      <div className="logo w-72 mix-blend-multiply max-lg:w-44 max-[1400px]:w-60">
-        <Link href="/">
-          <img
-            src="/images/logo.png"
-            alt="Zooniverse"
-            className="select-none ml-20 max-lg:ml-14"
-          />
-        </Link>
-      </div>
-      <ul className="flex flex-row gap-12 text-lg text-green-700 max-lg:text-base max-lg:gap-9 max-md:invisible max-[1200px]:pl-24 max-[1200px]:text-base lg:max-[1200px]:gap-6">
-        <li className="NavLinks">
-          <Link href="/home">Home</Link>
-        </li>
-        <li className="NavLinks">
-          <Link href="/tickets">Tickets</Link>
-        </li>
-        <li className="NavLinks">
-          <Link href="/events">Events</Link>
-        </li>
-        <li className="NavLinks max-[900px]:hidden">
-          <Link href="/species">Species</Link>
-        </li>
-        <li className="flex justify-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className={
-              "w-7 fill-current select-none text-green-700 cursor-pointer hover:translate-y-[2px] duration-200 max-lg:w-6 max-md:invisible  max-[1200px]:w-6 " +
-              (open ? "rotate-180" : "")
-            }
-            viewBox="0 -960 960 960"
-            onClick={() => {
-              setOpen(!open);
-            }}
-          >
-            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
-          </svg>
-          {/* drop down menu items */}
-          <div
-            ref={menuRef}
-            className={
-              "dropDownMenu absolute w-64 bg-white z-10 mt-[80px] flex rounded-lg justify-center items-center px-3 py-4 max-lg:w-52 max-lg:px-2 max-md:invisible " +
-              (open ? "active" : "inactive")
-            }
-          >
-            <ul className="flex flex-col items-center">
-              <DropDownMenu items={"Contact Us"} link={"/contact"} />
-              <DropDownMenu items={"Certificates"} link={"/certificates"} />
-              <DropDownMenu items={"About Us"} link={"/about"} />
-            </ul>
-          </div>
-        </li>
-      </ul>
-
-      <ul className="flex flex-row gap-6 mr-20 text-lg text-green-700 max-lg:gap-5 max-lg:text-base max-md:invisible max-[1200px]:text-base min-[900px]:max-[990px]:mr-0">
-        <li className="duration-100 transform transition hover:scale-105 hover:font-medium">
-          <Link href="/login" className="select-none ">
-            Log In
+    <>
+      <nav className="h-24 w-full flex overflow-hidden justify-between items-center max-lg:h-20 min-[990px]:w-full">
+        <div className="logo w-72 mix-blend-multiply max-lg:w-44 max-[1400px]:w-60 max-[425px]:w-32">
+          <Link href="/">
+            <img
+              src="/images/logo.png"
+              alt="Zooniverse"
+              className="select-none ml-20 max-lg:ml-14"
+            />
           </Link>
-        </li>
-        <li>
-          <div className="w-[2px] bg-green-700 h-8 select-none opacity-50 max-lg:h-6 max-[1200px]:h-6"></div>
-        </li>
-        <li className="duration-100 transform transition hover:scale-105 hover:font-medium">
-          <Link href="/signup" className="select-none">
-            Sign Up
-          </Link>
-        </li>
-      </ul>
-
-      {/* Hamburger settings */}
-      <div className="md:hidden">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className="w-6 mr-14 fill-current text-green-700">
-            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-          </svg>
         </div>
-      </div>
-    </nav>
+        <ul className="flex flex-row gap-12 text-lg text-green-700 max-lg:text-base max-lg:gap-9 max-md:hidden max-[1200px]:pl-24 max-[1200px]:text-base lg:max-[1200px]:gap-6">
+          <li className="NavLinks">
+            <Link href="/home">Home</Link>
+          </li>
+          <li className="NavLinks">
+            <Link href="/tickets">Tickets</Link>
+          </li>
+          <li className="NavLinks">
+            <Link href="/events">Events</Link>
+          </li>
+          <li className="NavLinks max-[900px]:hidden">
+            <Link href="/species">Species</Link>
+          </li>
+          <li className="flex justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={
+                "w-7 fill-current select-none text-green-700 cursor-pointer hover:translate-y-[2px] duration-200 max-lg:w-6 max-md:hidden  max-[1200px]:w-6 " +
+                (open ? "rotate-180" : "")
+              }
+              viewBox="0 -960 960 960"
+              onClick={() => {
+                setOpen(!open);
+              }}
+            >
+              <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+            </svg>
+            {/* drop down menu items */}
+            <div
+              ref={menuRef}
+              className={
+                "dropDownMenu absolute w-64 bg-white z-10 mt-[80px] flex rounded-lg justify-center items-center px-3 py-4 max-lg:w-52 max-lg:px-2 max-md:invisible " +
+                (open ? "active" : "inactive")
+              }
+            >
+              <ul className="flex flex-col items-center">
+                <DropDownMenu items={"Contact Us"} link={"/contact"} />
+                <DropDownMenu items={"Certificates"} link={"/certificates"} />
+                <DropDownMenu items={"About Us"} link={"/about"} />
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <ul className="flex flex-row gap-6 mr-20 text-lg text-green-700 max-lg:gap-5 max-lg:text-base max-md:hidden max-[1200px]:text-base min-[768px]:max-[990px]:mr-8">
+          <li className="duration-100 transform transition hover:scale-105 hover:font-medium">
+            <Link href="/login" className="select-none ">
+              Log In
+            </Link>
+          </li>
+          <li>
+            <div className="w-[2px] bg-green-700 h-8 select-none opacity-50 max-lg:h-6 max-[1200px]:h-6"></div>
+          </li>
+          <li className="duration-100 transform transition hover:scale-105 hover:font-medium">
+            <Link href="/signup" className="select-none">
+              Sign Up
+            </Link>
+          </li>
+        </ul>
+
+        {/* Hamburger settings */}
+        <div className="md:hidden flex absolute items-center h-20 right-0  top-0">
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 -960 960 960"
+              className="w-6 mr-14 fill-current text-green-700 z-40"
+              onClick={() => {
+                setMenuOpen(!menuOpen);
+              }}
+            >
+              <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Menu close setting */}
+
+        <div className="md:hidden">
+          <div className="h-24 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className={"absolute right-0  w-6 mr-14 fill-current text-white z-50 " + (menuOpen? 'closeVisible': 'closeInvisible')} onClick={() => {
+                setMenuOpen(!menuOpen);
+              }}>
+              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+          </div>
+        </div>
+      </nav>
+      <Menu menu={menuOpen} />
+    </>
   );
 };
 
