@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import "./ZooBlog.css";
+import Image from "next/image";
 
 const ZooBlog = () => {
   return (
@@ -29,8 +30,11 @@ const ZooBlog = () => {
             <div>
               <Link href="/blogpost">
                 <div className="relative overflow-hidden flex justify-center items-center group">
-                  <img
+                  <Image
                     src="/images/cheetah.jpg"
+                    width={500}
+                    height={0}
+                    loading="lazy"
                     className="h-[450px] w-[100%] object-cover group-hover:blur-sm group-hover:brightness-900 max-[900px]:h-[400px]"
                   />
                   <div className="blogPost flex justify-center items-center">
@@ -68,8 +72,11 @@ const ZooBlog = () => {
               </div>
               <Link href="/blogpost">
                 <div className="relative overflow-hidden flex justify-center items-center group">
-                  <img
+                  <Image
                     src="/images/visitors.jpg"
+                    width={500}
+                    height={0}
+                    loading="lazy"
                     className="h-[450px] w-[100%] object-cover group-hover:blur-sm group-hover:brightness-900 max-[900px]:h-[400px]"
                   />
                   <div className="blogPost flex justify-center items-center">
@@ -109,8 +116,11 @@ const ZooBlog = () => {
               </div>
               <Link href="/blogpost">
                 <div className="relative overflow-hidden flex justify-center items-center group">
-                  <img
+                  <Image
                     src="/images/parrot.png"
+                    width={500}
+                    height={0}
+                    loading="lazy"
                     className="h-[450px] w-[100%] object-cover group-hover:blur-sm group-hover:brightness-900 max-[900px]:h-[400px]"
                   />
                   <div className="blogPost flex justify-center items-center">

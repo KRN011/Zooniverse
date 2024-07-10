@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import "./Navbar.css";
+import Image from "next/image";
 import Menu from "./Menu";
 
 const Navbar = () => {
@@ -30,9 +31,12 @@ const Navbar = () => {
       <nav className="h-24 w-full flex overflow-hidden justify-between items-center max-lg:h-20 min-[990px]:w-full">
         <div className="logo w-72 mix-blend-multiply max-lg:w-44 max-[1400px]:w-60 max-[425px]:w-32">
           <Link href="/">
-            <img
+            <Image
               src="/images/logo.png"
               alt="Zooniverse"
+              width={288}
+              height={0}
+              loading="lazy"
               className="select-none ml-20 max-lg:ml-14"
             />
           </Link>

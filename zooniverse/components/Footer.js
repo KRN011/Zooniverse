@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import './Footer.css';
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -10,10 +11,13 @@ const Footer = () => {
       {/* upper */}
       <div className="flex justify-between items-center px-52 max-[1250px]:px-36 max-[900px]:px-20 max-md:py-5 max-[625px]:justify-center max-h-20 max-[450px]:px-3">
         <div className="">
-          <img
-            src="images/logo.png"
-            alt=""
-            className="w-60 max-lg:w-44 max-md:w-32 mix-blend-multiply max-[625px]:hidden"
+          <Image
+            src="/images/logo.png"
+            alt="Zooniverse"
+            width={240}
+            height={80}
+            loading="lazy"
+            className="w-60 max-lg:w-44 max-md:w-32 mix-blend-multiply max-[625px]:hidden pointer-events-none"
           />
         </div>
         <div>
